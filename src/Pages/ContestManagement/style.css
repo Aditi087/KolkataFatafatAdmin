@@ -1,0 +1,25 @@
+.winner_fields {
+  background-color: rgba(197, 204, 224, 0.516);
+}
+.game_name {
+  font-weight: 700 !important;
+  color: var(--theme-color-blue);
+}
+.date_time {
+  background-color: rgb(200, 187, 8);
+  color: rgb(99, 99, 99);
+  font-weight: 500;
+  font-size: 14px;
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+.news_box {
+  height: 71vh;
+  /* height: fit-content; */
+  overflow: scroll;
+  background-color: var(--theme-color-blue);
+  color: white !important;
+}
+.news_box::-webkit-scrollbar {
+  display: none;
+}

@@ -1,0 +1,19 @@
+.profile_image {
+  height: 5rem;
+  border-radius: 50%;
+}
+#pr_name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--blue);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  letter-spacing: 1px;
+}
+#pr_role {
+  font-size: 14px;
+  font-weight: 400;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: var(--text-color-blue);
+}

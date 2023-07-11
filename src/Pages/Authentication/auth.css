@@ -1,0 +1,67 @@
+.log_body {
+  background-color: var(--theme-color-blue);
+  height: 100vh;
+  width: 100vw;
+  overflow: scroll;
+}
+.log_body::-webkit-scrollbar {
+  display: none;
+}
+.log_box {
+  background-color: whitesmoke;
+  min-height: 60vh;
+  width: 40vw;
+  height: fit-content;
+  padding: 20px;
+  display: flex;
+  border-radius: 2px;
+}
+.log_logo {
+  /* font-size: 36px;
+  font-weight: 700; */
+  margin: 18px;
+  border: 1px solid var(--theme-color-blue);
+  border-radius: 38px;
+  padding: 10px 9rem;
+  height: 70px;
+}
+.log_head {
+  color: var(--theme-color-blue);
+  text-align: center;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  width: 170px;
+  height: 29px;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.log_icon {
+  font-size: 18px;
+  width: 30px;
+  color: var(--theme-color-blue);
+}
+
+.fields2 input::placeholder {
+  color: var(--theme-color-blue);
+}
+.fields2 input {
+  color: var(--theme-color-blue);
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .log_box {
+    background-color: whitesmoke;
+    width: 80vw;
+  }
+  .fields2 {
+    padding: 20px 0px;
+  }
+}
+@media (min-width: 767px) and (max-width: 1024px) {
+  .log_box {
+    background-color: whitesmoke;
+    width: 70vw;
+  }
+}

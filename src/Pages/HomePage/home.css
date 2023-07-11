@@ -1,0 +1,71 @@
+.home_body {
+  /* background-color: var(--theme-color-black); */
+  height: 100vh;
+  background-size: cover;
+  overflow: scroll;
+}
+.home_body::-webkit-scrollbar {
+  display: none;
+}
+.home_nav {
+  height: 8vh;
+  background-color: var(--theme-color-blue);
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+}
+.home_logo {
+  /* color: whitesmoke;
+  font-weight: 500;
+  font-size: 16px; */
+  background-color: whitesmoke;
+  border: 1px solid whitesmoke;
+  border-radius: 35px;
+  padding: 4px 40px;
+  height: 40px;
+}
+.admin_log_btn {
+  color: whitesmoke;
+  font-weight: 500;
+  font-size: 16px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  letter-spacing: 1px;
+  padding: 2px 10px;
+  border: 0px solid transparent;
+  transition: all ease 1s !important;
+}
+.admin_log_btn:hover {
+  border: 1px solid whitesmoke;
+  border-radius: 2px;
+  padding: 2px 12px;
+  transition: all ease 0.8s !important;
+  /* background-color: var(--theme-color-orange); */
+}
+
+.download_btn {
+  font-size: 50px;
+  color: rgb(19, 171, 19);
+  padding: 5px 20px;
+  transition: all ease 0.5s !important;
+  border-radius: 5px;
+}
+.download_btn:hover {
+  background-color: rgb(19, 171, 19);
+  padding: 5px 80px;
+  color: whitesmoke;
+  font-size: 55px;
+}
+.home_result {
+  margin-top: 3rem;
+  /* width: 60vw; */
+  /* border-bottom: 1.5px solid rgba(170, 169, 169, 0.553); */
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .download_btn {
+    font-size: 70px;
+  }
+  .download_btn:hover {
+    font-size: 76px;
+  }
+}

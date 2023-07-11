@@ -1,0 +1,226 @@
+.modal-content-custom {
+  background-color: #6e656508 !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+.heading {
+  background-color: var(--theme-color-blue);
+  width: 100%;
+  padding: 10px;
+  color: whitesmoke;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  letter-spacing: 1.5px;
+}
+
+.page_footer {
+  background-color: var(--theme-color-black);
+  width: 100%;
+  height: 10px;
+  color: whitesmoke;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.page_button {
+  background-color: var(--theme-color-orange) !important;
+  border: none !important;
+  padding: 8px 50px !important;
+  margin-top: 30px;
+  transition: all 1s;
+  font-weight: 500;
+}
+.page_button:hover {
+  background-color: var(--theme-color-blue) !important;
+}
+.title_Compnent {
+  color: var(--theme-color-blue);
+  font-weight: 600;
+  /* font-size: 14px; */
+  letter-spacing: 1px;
+  margin: auto;
+  margin-left: 0;
+}
+.text_Compnent {
+  color: rgb(67, 65, 61);
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin: auto 0;
+  text-align: left;
+}
+.heading_text_Compnent {
+  color: var(--theme-color-blue);
+  font-weight: 700;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  letter-spacing: 3px;
+}
+.center-align {
+  text-align: center !important;
+  margin: auto;
+}
+.add_icon {
+  color: blue;
+  font-size: 18px;
+  margin: auto;
+  margin-bottom: 2px;
+}
+.add_icon_hover:hover {
+  color: var(--theme-red);
+}
+.live_icon {
+  color: rgb(19, 180, 19);
+}
+.heading_btn {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--very-light-grey);
+  background-color: transparent;
+  border: 1px solid rgba(193, 193, 193, 0.584);
+  border-radius: 2px;
+  padding: 4px 16px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  transition: all 0.5s;
+}
+.heading_btn:hover {
+  background-color: rgba(193, 193, 193, 0.473);
+  border: none;
+  /* color: var(--theme-red); */
+}
+
+.heading_icon {
+  color: whitesmoke;
+  font-size: 18px;
+}
+
+.search_box {
+  border: 1px solid #ccc;
+  width: max-content;
+  height: fit-content;
+  padding: 2px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  height: 5vh;
+  min-width: 16rem;
+}
+.search_box:active {
+  border: 1px solid var(--theme-color-blue);
+}
+.search_input {
+  border: none;
+  padding: 3px;
+  min-width: 160px;
+  background-color: transparent;
+}
+.search_input::placeholder {
+  color: var(--background-gray);
+  font-size: 14px;
+}
+.search_input:focus {
+  outline: none;
+}
+.search_icon {
+  color: var(--theme-color-light-blue);
+  /* margin: auto; */
+  margin-left: 5px;
+  color: #e68236;
+}
+
+/* Media Queries  */
+@media screen and (max-width: 1024px) {
+  .search_box {
+    height: 4vh;
+  }
+}
+
+#switch_comp .css-ahj2mt-MuiTypography-root {
+  font-size: 10px !important;
+}
+
+.imageDragContainer {
+  width: 100%;
+  padding: 10px 8px;
+}
+
+.pickerContainer {
+  width: 100%;
+  height: 200px;
+  background-color: var(--white);
+  border: 1px solid var(--light-grey);
+  cursor: pointer;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+}
+
+/* .pickerContainer:hover{
+    background-color: var(--black-transparent);
+} */
+
+.imageView {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--white), var(--very-light-grey));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--light-grey);
+}
+
+.userIcon {
+  font-size: 100px;
+}
+
+.image {
+  max-width: 300px;
+  height: 100%;
+}
+.hover_image {
+  background-color: rgba(41, 39, 39, 0.438);
+  width: 100%;
+  height: 100%;
+}
+.imageName {
+  max-width: 300px;
+  height: 100%;
+}
+.img_btn {
+  /* padding: 8px; */
+  /* margin: 0px 8px; */
+  border: 1px solid var(--very-light-grey);
+  border-radius: 5px;
+  background-color: var(--theme-color-light-blue);
+  font-weight: 600;
+  color: var(--light-grey);
+  cursor: pointer;
+}
+.img_view {
+  background-color: var(--theme-color-light-blue);
+  padding: 5px;
+}
+
+.disable_img {
+  cursor: not-allowed;
+}
+
+.profile_image {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+}
+
+.label_comp {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-color-blue);
+  display: flex;
+}
+.mandatory {
+  color: var(--required-text-red);
+  margin-left: 2px;
+}

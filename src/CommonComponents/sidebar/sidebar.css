@@ -1,0 +1,101 @@
+.menuCard_body {
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+}
+.css-v9jdox-MuiDrawer-docked .MuiDrawer-paper {
+  background-color: var(--theme-color-purple) !important;
+}
+
+.css-1x3wrgw-MuiDrawer-docked .MuiDrawer-paper {
+  background-color: var(--theme-color-purple) !important;
+}
+/* .css-1x3wrgw-MuiDrawer-docked {
+    width: fit-content;
+} */
+
+.sidebar .MuiPaper-root::-webkit-scrollbar {
+  width: 6px;
+  height: 100vh !important;
+}
+
+.MuiPaper-root::-webkit-scrollbar-track {
+  background-color: var(--theme-color-purple);
+}
+
+.MuiPaper-root::-webkit-scrollbar-thumb {
+  background-color: var(--white);
+}
+.sidebar_list {
+  /* background-image: url(https://static.vecteezy.com/system/resources/previews/015/735/682/non_2x/abstract-dark-background-for-banners-social-media-backgrounds-business-card-backgrounds-business-cards-book-covers-wallpapers-vector.jpg); */
+  background-color: var(--theme-color-black);
+  padding: 20px 5px;
+  height: 74vh;
+}
+.logo_bg {
+  background-color: var(--theme-color-blue);
+  height: 16vh;
+}
+.logo {
+  height: 38px;
+  margin: auto !important;
+  transition: all 1s;
+}
+.logo1 {
+  height: 60px;
+  margin: auto !important;
+}
+.short_info1 {
+  color: whitesmoke;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.short_info2 {
+  color: var(--theme-color-orange);
+  text-align: left;
+}
+.plus_icon {
+  text-align: right;
+  margin: auto !important;
+  color: var(--white);
+}
+.css-10hburv-MuiTypography-root {
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+}
+
+.css-12i7wg6-MuiPaper-root-MuiDrawer-paper {
+  z-index: 0 !important;
+}
+
+.menu_icons {
+  color: var(--white) !important;
+  font-size: 16px;
+  margin: auto 0;
+}
+.sub_menu_icons {
+  color: var(--white) !important;
+  font-size: 13px;
+  margin: auto 0;
+}
+.expant_icon {
+  color: var(--white) !important;
+  font-size: 28px;
+  margin: auto 0;
+}
+
+.menu_text {
+  color: var(--white) !important;
+  text-align: left;
+  margin: auto 0;
+}
+.active_menu {
+  color: var(--theme-color-orange) !important;
+}
+.nav_footer {
+  background-color: var(--theme-color-blue);
+  width: 100%;
+  text-align: center;
+  height: 10vh;
+}
