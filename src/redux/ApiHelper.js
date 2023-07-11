@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 // export const API_URL = process.env.REACT_APP_BACKEND_URL;
-export const API_URL = 'https://www.api-admin.my11champ.com/api/v1/admin';
+// export const API_URL = 'https://www.api-admin.my11champ.com/api/v1/admin';
+export const API_URL = '';
 
 export const ApiHelperFunction = async (props) => {
   const { urlPath, method, data } = props;

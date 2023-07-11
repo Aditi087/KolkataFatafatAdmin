@@ -18,7 +18,7 @@ export const viewGameTransaction = createAsyncThunk(
   'view-game-transaction',
   async (data) => {
     const response = await ApiHelperFunction({
-      urlPath: `/view/user`,
+      // urlPath: `/view/user`,
       method: 'POST',
       data: data,
     });
@@ -36,7 +36,7 @@ export const getGameTransactionById = createAsyncThunk(
   async (id) => {
     // console.log(data, 'kkk');
     const response = await ApiHelperFunction({
-      urlPath: `/edit/contest/discount/${id}`,
+      // urlPath: `/edit/contest/discount/${id}`,
       method: 'GET',
       // data: data
     });

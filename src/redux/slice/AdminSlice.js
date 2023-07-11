@@ -42,7 +42,7 @@ export const viewAdminList = createAsyncThunk(
   'view-admin-list',
   async (data) => {
     const response = await ApiHelperFunction({
-      urlPath: `/view/admin`,
+      // urlPath: `/view/admin`,
       method: 'POST',
       data: data,
     });
@@ -58,7 +58,7 @@ export const viewAdminList = createAsyncThunk(
 export const getAdminById = createAsyncThunk('get-admin-by-id', async (id) => {
   // console.log(data, 'kkk');
   const response = await ApiHelperFunction({
-    urlPath: `/edit/contest/discount/${id}`,
+    // urlPath: `/edit/contest/discount/${id}`,
     method: 'GET',
     // data: data
   });
@@ -77,7 +77,7 @@ export const UpdateAdmin = createAsyncThunk(
   async ({ data }) => {
     // console.log(data, 'kkk');
     const response = await ApiHelperFunction({
-      urlPath: `/create/contest`,
+      // urlPath: `/create/contest`,
       method: 'POST',
       data: data,
     });
