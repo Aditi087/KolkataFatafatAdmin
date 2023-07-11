@@ -112,7 +112,7 @@ const Sidebar = ({
           </div>
           <div className="d-flex flex-column my-auto">
             <span className="short_info1">Sanju Adhikari</span>
-            <span className="short_info2">Admin</span>
+            <span className="short_info2">Admin </span>
           </div>
         </div>
 
