@@ -1,15 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TableList from '../../CommonComponents/table/TableList';
-import {
-  AdminListView,
-  UserListView,
-} from '../../CommonComponents/pageComponents/PageConstants';
-import {
-  ButtonComponent,
-  Label,
-  SwitchButtonComponent,
-} from '../../CommonComponents/pageComponents/PageComponents';
+import { UserListView } from '../../CommonComponents/pageComponents/PageConstants';
+import { SwitchButtonComponent } from '../../CommonComponents/pageComponents/PageComponents';
 import { RiShareForwardLine } from 'react-icons/ri';
 import { MdAddCard } from 'react-icons/md';
 import { Backdrop, Box, Button, Fade, Modal, TextField } from '@mui/material';

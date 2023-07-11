@@ -1,17 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './style.css';
 import Button from 'react-bootstrap/Button';
 import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { styled } from '@mui/material/styles';
 import { IoIosAddCircleOutline } from 'react-icons/io';
-import { MdEditSquare, MdOutlineAddCircleOutline } from 'react-icons/md';
+import { MdOutlineAddCircleOutline } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
 import { FiEdit, FiSearch } from 'react-icons/fi';
 import { Modal } from 'react-bootstrap';
 import { ThreeDots } from 'react-loader-spinner';
@@ -335,32 +331,6 @@ export const openFileDialog = () => {
 export const ImagePicker = (props) => {
   const { image, setImage, disabled } = props;
 
-  const [viewImage, setViewImage] = useState(null);
-
-  const onImageChange = async (event) => {
-    if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
-      const base64 = await convertBase64(file);
-      setImage(file);
-      setViewImage(base64);
-      // setImageView(URL.createObjectURL(event.target.files[0]));
-    }
-  };
-  const convertBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
-
-      fileReader.onload = () => {
-        resolve(fileReader.result);
-      };
-
-      fileReader.onerror = (error) => {
-        reject(error);
-      };
-    });
-  };
-
   const RemoveImage = () => {
     setImage(null);
     // setImageView(null);
@@ -420,37 +390,6 @@ export const ImagePicker = (props) => {
 
 export const ProfileImagePicker = (props) => {
   const { image, setImage, disabled } = props;
-
-  const [viewImage, setViewImage] = useState(null);
-
-  const onImageChange = async (event) => {
-    if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
-      const base64 = await convertBase64(file);
-      setImage(file);
-      setViewImage(base64);
-      // setImageView(URL.createObjectURL(event.target.files[0]));
-    }
-  };
-  const convertBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
-
-      fileReader.onload = () => {
-        resolve(fileReader.result);
-      };
-
-      fileReader.onerror = (error) => {
-        reject(error);
-      };
-    });
-  };
-
-  const RemoveImage = () => {
-    setImage(null);
-    // setImageView(null);
-  };
 
   return (
     <>

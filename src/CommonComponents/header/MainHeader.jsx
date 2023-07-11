@@ -2,14 +2,12 @@ import React, { useEffect, useState } from 'react';
 import './style.css';
 import { Backdrop, Badge, Box, Fade, Modal } from '@mui/material';
 import { IoMdNotifications } from 'react-icons/io';
-import { FaUserCircle } from 'react-icons/fa';
-import { RiUserLine } from 'react-icons/ri';
 import { Link, useNavigate } from 'react-router-dom';
 import { Dropdown } from 'react-bootstrap';
 import { AiOutlineLogout } from 'react-icons/ai';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import Profile from '../../Pages/Profile/Profile';
-import profileImage from '../../assets/profile.png';
+import { RiUserLine } from 'react-icons/ri';
 
 const style = {
   position: 'absolute',
@@ -39,7 +37,7 @@ function MainHeader({ openMenu1, openMenu2, openMenu3 }) {
     setBreadcrumb(add);
   }, [openMenu1, openMenu2, openMenu3]);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [open, setOpen] = useState(false);

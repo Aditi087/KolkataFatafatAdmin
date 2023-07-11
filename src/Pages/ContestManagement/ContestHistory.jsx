@@ -2,14 +2,10 @@ import React, { useEffect, useState } from 'react';
 import TableList from '../../CommonComponents/table/TableList';
 import {
   ContestList,
-  Transaction,
   gameFilter,
-  typeFilter,
 } from '../../CommonComponents/pageComponents/PageConstants';
-import TableTop from '../../CommonComponents/table/TableTop';
 import { RiShareForwardLine } from 'react-icons/ri';
-import { SwitchButtonComponent } from '../../CommonComponents/pageComponents/PageComponents';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function ContestHistory() {
   useEffect(() => {
@@ -19,7 +15,7 @@ function ContestHistory() {
   }, []);
   const navigate = useNavigate();
   const [calenderValue, setCalenderValue] = useState(new Date());
-  const [searchItem, setSearchItem] = useState('');
+  // const [searchItem, setSearchItem] = useState('');
   const [gameName, setGameName] = useState('');
   const dropdownData = [
     {
@@ -42,7 +38,7 @@ function ContestHistory() {
     var _time =
       h > 12
         ? h - 12 + ':' + m + ' PM'
-        : h == 12
+        : h === 12
         ? h + ':' + m + ' PM'
         : h + ':' + m + ' AM';
     return _time;
@@ -196,7 +192,7 @@ function ContestHistory() {
   };
   const refreshClick = () => {
     setGameName('');
-    setSearchItem('');
+    // setSearchItem('');
   };
   return (
     <div className="Main_body">
@@ -208,10 +204,10 @@ function ContestHistory() {
         utilities
         // search={ContestList.length > 0}
         // searchValue={searchItem}
-        searchOnchange={(e) => {
-          setSearchItem(e.target.value);
-        }}
-        searchPlaceholder="Search by name or type"
+        // searchOnchange={(e) => {
+        //   setSearchItem(e.target.value);
+        // }}
+        // searchPlaceholder="Search by name or type"
         refreshClick={refreshClick}
         filters
         dropdownData={dropdownData}

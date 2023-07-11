@@ -22,8 +22,8 @@ import {
   MdVisibilityOff,
   MdVisibility,
 } from 'react-icons/md';
-import { createAdmin } from '../../redux/slice/AdminSlice';
-import { useDispatch, useSelector } from 'react-redux';
+// import { createAdmin } from '../../redux/slice/AdminSlice';
+// import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import { AdminListView } from '../../CommonComponents/pageComponents/PageConstants';
@@ -38,9 +38,9 @@ const CreateAdmin = () => {
   const validateEmail = RegExp(
     /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   );
-  const validPassword = RegExp(/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,20}$/);
+  // const validPassword = RegExp(/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,20}$/);
   const validPhone = RegExp(/^[6-9]{1}[0-9]{9}$/);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const navigate = useNavigate();
   const [image, setImage] = useState(null);
   const [error, setError] = useState({});
@@ -148,6 +148,7 @@ const CreateAdmin = () => {
     event.preventDefault();
     let data = {
       name: inputState.name,
+      role: role,
       phone: inputState.phone,
       email: inputState.email,
       image: image,

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
   ButtonComponent,
   Heading,
@@ -25,7 +25,7 @@ import {
 } from '@mui/material';
 import { Label } from '../../CommonComponents/pageComponents/PageComponents';
 import { MdPhone, MdVisibilityOff, MdVisibility } from 'react-icons/md';
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import { UserListView } from '../../CommonComponents/pageComponents/PageConstants';
@@ -71,14 +71,12 @@ const UpdateUser = () => {
     // },
   }));
 
-  const validPassword = RegExp(/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,20}$/);
   const validPhone = RegExp(/^[6-9]{1}[0-9]{9}$/);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const navigate = useNavigate();
   const [edit, setEdit] = useState(false);
   const [image, setImage] = useState(null);
   const [error, setError] = useState({});
-  const [roleIndex, setRoleIndex] = useState('');
   const [cPassword, setCPassword] = useState('');
   const [confirm, setConfirm] = useState(true);
   const [status, setStatus] = useState(0);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import TableList from '../../CommonComponents/table/TableList';
 import {
   Transaction,
@@ -6,10 +6,8 @@ import {
   gameFilter,
   typeFilter,
 } from '../../CommonComponents/pageComponents/PageConstants';
-import TableTop from '../../CommonComponents/table/TableTop';
 import { RiShareForwardLine } from 'react-icons/ri';
-import { SwitchButtonComponent } from '../../CommonComponents/pageComponents/PageComponents';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function WalletDetails() {
   const navigate = useNavigate();

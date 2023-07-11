@@ -1,35 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import TableList from '../../CommonComponents/table/TableList';
-import {
-  ContestList,
-  Transaction,
-  gameFilter,
-  typeFilter,
-} from '../../CommonComponents/pageComponents/PageConstants';
-import TableTop from '../../CommonComponents/table/TableTop';
+import { ContestList } from '../../CommonComponents/pageComponents/PageConstants';
 import { RiShareForwardLine } from 'react-icons/ri';
-import { SwitchButtonComponent } from '../../CommonComponents/pageComponents/PageComponents';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function ContestTransactionDetails() {
   const navigate = useNavigate();
   const [searchItem, setSearchItem] = useState('');
-  const [gameName, setGameName] = useState('');
-  const dropdownData = [
-    {
-      data: typeFilter?.map((e) => {
-        return {
-          title: e?.name,
-          value: e?.value,
-        };
-      }),
-      label: 'All Type',
-      onchange: (e) => {
-        setGameName(e.target.value);
-      },
-      value: gameName,
-    },
-  ];
+  // const dropdownData = [
+  //   {
+  //     data: typeFilter?.map((e) => {
+  //       return {
+  //         title: e?.name,
+  //         value: e?.value,
+  //       };
+  //     }),
+  //     label: 'All Type',
+  //     onchange: (e) => {
+  //       setGameName(e.target.value);
+  //     },
+  //     value: gameName,
+  //   },
+  // ];
   const columns = [
     {
       name: 'Player Name',
@@ -129,7 +121,7 @@ function ContestTransactionDetails() {
     return newData;
   };
   const refreshClick = () => {
-    setGameName('');
+    // setGameName('');
     setSearchItem('');
   };
   return (

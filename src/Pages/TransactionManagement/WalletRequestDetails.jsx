@@ -6,13 +6,7 @@ import {
   Label,
   SwitchButtonComponent,
 } from '../../CommonComponents/pageComponents/PageComponents';
-import {
-  Box,
-  FilledInput,
-  Grid,
-  InputAdornment,
-  TextField,
-} from '@mui/material';
+import { Box, Grid, InputAdornment, TextField } from '@mui/material';
 import { MdCurrencyRupee, MdDateRange } from 'react-icons/md';
 
 function WalletRequestDetails() {

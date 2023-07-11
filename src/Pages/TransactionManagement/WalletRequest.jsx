@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import TableList from '../../CommonComponents/table/TableList';
 import {
-  Transaction,
   Wallet,
-  creditFilter,
-  gameFilter,
   walletFilterData,
 } from '../../CommonComponents/pageComponents/PageConstants';
-import TableTop from '../../CommonComponents/table/TableTop';
 import { RiShareForwardLine } from 'react-icons/ri';
 import { SwitchButtonComponent } from '../../CommonComponents/pageComponents/PageComponents';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function WalletRequest() {
   useEffect(() => {

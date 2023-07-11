@@ -8,7 +8,6 @@ import {
 } from '../../CommonComponents/pageComponents/PageConstants';
 import { SwitchButtonComponent } from '../../CommonComponents/pageComponents/PageComponents';
 import { RiShareForwardLine } from 'react-icons/ri';
-import { MdAddCard } from 'react-icons/md';
 
 function AdminList() {
   useEffect(() => {

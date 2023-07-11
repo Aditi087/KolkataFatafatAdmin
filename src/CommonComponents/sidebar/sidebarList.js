@@ -1,11 +1,10 @@
 import { BiUserPlus } from 'react-icons/bi';
 import { AiOutlineTransaction } from 'react-icons/ai';
 import { MdOutlineDashboard } from 'react-icons/md';
-import { RiAdminFill, RiFileList3Line } from 'react-icons/ri';
-import { SiRepublicofgamers, SiRiotgames } from 'react-icons/si';
-import { BiTrophy } from 'react-icons/bi';
+import { RiAdminFill } from 'react-icons/ri';
+import { SiRepublicofgamers } from 'react-icons/si';
 import { CiTrophy, CiViewList, CiWallet } from 'react-icons/ci';
-import { IoGameControllerOutline, IoTrophyOutline } from 'react-icons/io5';
+import { IoGameControllerOutline } from 'react-icons/io5';
 import { user } from '../pageComponents/PageConstants';
 // import { user } from '../pageComponents/PageConstants/user';
 

@@ -1,20 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
   ButtonComponent,
-  Heading,
-  ImagePicker,
   ProfileImagePicker,
-  SwitchButtonComponent,
 } from '../../CommonComponents/pageComponents/PageComponents';
 import {
   Box,
-  FormControl,
   Grid,
   IconButton,
   InputAdornment,
-  MenuItem,
-  NativeSelect,
-  Select,
   TextField,
 } from '@mui/material';
 import { Label } from '../../CommonComponents/pageComponents/PageComponents';
@@ -24,11 +17,9 @@ import {
   MdVisibilityOff,
   MdVisibility,
 } from 'react-icons/md';
-import { createAdmin } from '../../redux/slice/AdminSlice';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
-import profileImage from '../../assets/profile.png';
 import './profile.css';
 import { FiEdit } from 'react-icons/fi';
 
@@ -42,17 +33,15 @@ const Profile = () => {
   const validateEmail = RegExp(
     /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   );
-  const validPassword = RegExp(/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,20}$/);
   const validPhone = RegExp(/^[6-9]{1}[0-9]{9}$/);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const dispatch = useDispatch();
+  // const navigate = useNavigate();
   const [edit, setEdit] = useState(false);
   const [image, setImage] = useState(null);
   const [error, setError] = useState({});
-  const [role, setRole] = useState('');
+  // const [role, setRole] = useState('');
   const [cPassword, setCPassword] = useState('');
   const [confirm, setConfirm] = useState(true);
-  const [status, setStatus] = useState(0);
   const [inputState, setInputState] = useState({
     name: 'John Doe',
     phone: '9879543126',
@@ -128,14 +117,6 @@ const Profile = () => {
     setInputState({ ...inputState, [name]: value });
   };
 
-  const statusChange = (e) => {
-    if (e.target.checked) {
-      setStatus(1);
-    } else {
-      setStatus(0);
-    }
-  };
-
   const handleConfirmPassword = (e) => {
     setCPassword(e.target.value);
     if (e.target.value === inputState.password) {
@@ -147,17 +128,17 @@ const Profile = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    let data = {
-      name: inputState.name,
-      phone: inputState.phone,
-      email: inputState.email,
-      image: image,
-      address: inputState.address,
-      kyc: inputState.kyc,
-      upi: inputState.upi,
-      password: inputState.password,
-      status: status,
-    };
+    // let data = {
+    //   name: inputState.name,
+    //   phone: inputState.phone,
+    //   email: inputState.email,
+    //   image: image,
+    //   address: inputState.address,
+    //   kyc: inputState.kyc,
+    //   upi: inputState.upi,
+    //   password: inputState.password,
+    //   status: status,
+    // };
     // console.log(data);
     let ErrorList = validation();
     setError(validation());
