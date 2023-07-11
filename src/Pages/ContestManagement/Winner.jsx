@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import {
   ButtonComponent,
   Heading,
-  HeadingTextComponent,
-  ImagePicker,
-  SwitchButtonComponent,
+  // HeadingTextComponent,
+  // ImagePicker,
+  // SwitchButtonComponent,
   TitleComponent,
 } from '../../CommonComponents/pageComponents/PageComponents';
 import {
@@ -12,23 +12,15 @@ import {
   Box,
   FormControl,
   Grid,
-  IconButton,
-  InputAdornment,
+  // IconButton,
+  // InputAdornment,
   InputLabel,
   MenuItem,
-  NativeSelect,
+  // NativeSelect,
   Select,
   TextField,
 } from '@mui/material';
-import { Label } from '../../CommonComponents/pageComponents/PageComponents';
-import {
-  MdPhone,
-  MdEmail,
-  MdVisibilityOff,
-  MdVisibility,
-} from 'react-icons/md';
-import { createAdmin } from '../../redux/slice/AdminSlice';
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import {
@@ -49,7 +41,7 @@ const Winner = () => {
     localStorage.removeItem('om3');
   }, []);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const navigate = useNavigate();
   const [searchItem, setSearchItem] = useState('');
 
@@ -69,9 +61,9 @@ const Winner = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    let data = {
-      // name: inputState.name,
-    };
+    // let data = {
+    //   // name: inputState.name,
+    // };
     // console.log(data);
 
     if (gameName && type && singleDigit && patti) {

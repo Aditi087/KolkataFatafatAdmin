@@ -2,27 +2,27 @@ import React, { useState } from 'react';
 import './auth.css';
 import {
   Box,
-  FormControl,
+  // FormControl,
   Grid,
   IconButton,
-  Input,
+  // Input,
   InputAdornment,
-  InputLabel,
+  // InputLabel,
   TextField,
 } from '@mui/material';
 import { MdPhone, MdVisibility, MdVisibilityOff } from 'react-icons/md';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import {
   ButtonComponent,
-  Label,
+  // Label,
 } from '../../CommonComponents/pageComponents/PageComponents';
 import { logo } from '../../CommonComponents/pageComponents/PageConstants';
 
 const Login = () => {
   const validPhone = RegExp(/^[6-9]{1}[0-9]{9}$/);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const navigate = useNavigate();
   const [error, setError] = useState({});
   const [inputState, setInputState] = useState({
@@ -60,10 +60,10 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    let data = {
-      phone: inputState.phone,
-      password: inputState.password,
-    };
+    // let data = {
+    //   phone: inputState.phone,
+    //   password: inputState.password,
+    // };
     // console.log(data);
     let ErrorList = validation();
     setError(validation());
@@ -104,7 +104,7 @@ const Login = () => {
           autoComplete="off"
         >
           <div className="d-flex flex-column">
-            <img src={logo} className="log_logo mx-auto" />
+            <img src={logo} alt="" className="log_logo mx-auto" />
             <div className="log_head mx-auto">Log in</div>
           </div>
           <Grid className="fields2" container spacing={4}>

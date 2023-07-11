@@ -15,7 +15,7 @@ export const HomePage = () => {
   return (
     <div className="home_body">
       <div className="home_nav sticky-top px-4">
-        <img src={logo} className="home_logo my-auto" />
+        <img src={logo} alt="" className="home_logo my-auto" />
 
         <Link to="/login" className=" my-auto me-5">
           <button className="ghost_btn admin_log_btn m-auto">
