@@ -5,10 +5,8 @@ import {
   creditFilter,
   gameFilter,
 } from '../../CommonComponents/pageComponents/PageConstants';
-import TableTop from '../../CommonComponents/table/TableTop';
 import { RiShareForwardLine } from 'react-icons/ri';
-import { SwitchButtonComponent } from '../../CommonComponents/pageComponents/PageComponents';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function TransactionView() {
   useEffect(() => {
