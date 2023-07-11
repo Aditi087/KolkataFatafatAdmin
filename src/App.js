@@ -5,12 +5,10 @@ import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
-    <>
-      <div className="App">
-        <MainRoute />
-        <ToastContainer />
-      </div>
-    </>
+    <div className="App">
+      <MainRoute />
+      <ToastContainer />
+    </div>
   );
 }
 
