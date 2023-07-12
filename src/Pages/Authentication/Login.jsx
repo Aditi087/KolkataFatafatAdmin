@@ -19,6 +19,7 @@ import {
   // Label,
 } from '../../CommonComponents/pageComponents/PageComponents';
 import { logo } from '../../CommonComponents/pageComponents/PageConstants';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const validPhone = RegExp(/^[6-9]{1}[0-9]{9}$/);
@@ -60,22 +61,27 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // let data = {
-    //   phone: inputState.phone,
-    //   password: inputState.password,
-    // };
+    let data = {
+      phone: inputState.phone,
+      password: inputState.password,
+    };
     // console.log(data);
     let ErrorList = validation();
     setError(validation());
     if (Object.keys(ErrorList).length === 0) {
-      localStorage.setItem('token', 'token');
-      swal({
-        title: 'Login Successfull',
-        // text: 'Check it in the User List',
-        icon: 'success',
-        button: 'OK',
-      });
-      navigate('/dashboard');
+      if (data.phone === '9876543210' && data.password === '123456') {
+        localStorage.setItem('token', 'token');
+        swal({
+          title: 'Login Successfull',
+          // text: 'Check it in the User List',
+          icon: 'success',
+          button: 'OK',
+        });
+        navigate('/dashboard');
+      } else {
+        toast.error('wrong phone or password');
+      }
+
       // dispatch(createAdmin({ data })).then(() => {
       //   navigate('/');
       // });

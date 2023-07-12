@@ -51,14 +51,6 @@ const Winner = () => {
   const [singleDigit, setSingleDigit] = useState('');
   const [pattiList, setPattiList] = useState([]);
 
-  const handleDigitChange = (event) => {
-    // event.persist();
-    let v = event.target.value;
-    // console.log(v);
-    setPattiList(pattiFakeData[v - 1]);
-    console.log([pattiFakeData[v]]);
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     // let data = {
@@ -273,6 +265,9 @@ const Winner = () => {
                     label="Select Type"
                     onChange={(e) => {
                       setType(e.target.value);
+                      setPatti('');
+                      setSingleDigit('');
+                      setPattiList([]);
                     }}
                     defaultValue={1}
                     className="winner_fields"
@@ -297,7 +292,7 @@ const Winner = () => {
                       variant="filled"
                       options={pattiListFake}
                       autoHighlight
-                      getOptionLabel={(option) => option.patti}
+                      getOptionLabel={(option) => patti && option.patti}
                       renderOption={(props, option) => (
                         <Box component="li" {...props}>
                           <span>{option.patti}</span>
@@ -329,35 +324,6 @@ const Winner = () => {
                       {error.match_name}
                     </FormHelperText> */}
                   </FormControl>
-
-                  {/* <FormControl
-                    sx={{ m: 1, minWidth: 120 }}
-                    fullWidth
-                    size="small"
-                  >
-                    <InputLabel id="demo-select-small-label">
-                      Select Patti
-                    </InputLabel>
-                    <Select
-                      labelId="demo-select-small-label"
-                      id="demo-select-small"
-                      // value={age}
-                      label="Select Type"
-                      onChange={handlePattiChange}
-                      className="winner_fields"
-                    >
-                      <MenuItem value={1}>100</MenuItem>
-                      <MenuItem value={1}>777</MenuItem>
-                      <MenuItem value={1}>560</MenuItem>
-                      <MenuItem value={1}>119</MenuItem>
-                      <MenuItem value={1}>399</MenuItem>
-                      <MenuItem value={2}>200</MenuItem>
-                      <MenuItem value={2}>345</MenuItem>
-                      <MenuItem value={2}>660</MenuItem>
-                      <MenuItem value={2}>147</MenuItem>
-                      <MenuItem value={2}>228</MenuItem>
-                    </Select>
-                  </FormControl> */}
                 </Grid>
                 <Grid item xs={6} className="my-auto">
                   <TextField
@@ -382,6 +348,51 @@ const Winner = () => {
                     fullWidth
                     size="small"
                   >
+                    <Autocomplete
+                      id="size-small-outlined"
+                      size="small"
+                      variant="filled"
+                      options={pattiFakeData}
+                      autoHighlight
+                      getOptionLabel={(option) =>
+                        singleDigit && option.single_dig
+                      }
+                      renderOption={(props, option) => (
+                        <Box component="li" {...props}>
+                          <span>{option.single_dig}</span>
+                        </Box>
+                      )}
+                      onChange={(e, newValue) => {
+                        if (newValue) {
+                          setPattiList(newValue.pattiList);
+                          setSingleDigit(newValue.single_dig);
+                        } else {
+                          setPattiList('');
+                          setSingleDigit('');
+                        }
+                      }}
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          label="Select Single Digit"
+                          className="winner_fields"
+                        />
+                      )}
+                      // disabled={!inputState.sports_type || !contest_match_data}
+                    />
+                    {/* <FormHelperText
+                      error
+                      id="standard-weight-helper-text-email-login"
+                      className="ps-1"
+                    >
+                      {error.match_name}
+                    </FormHelperText> */}
+                  </FormControl>
+                  {/* <FormControl
+                    sx={{ m: 1, minWidth: 120 }}
+                    fullWidth
+                    size="small"
+                  >
                     <InputLabel id="demo-select-small-label">
                       Select Single Digit
                     </InputLabel>
@@ -393,7 +404,7 @@ const Winner = () => {
                       onChange={handleDigitChange}
                       className="winner_fields"
                     >
-                      <MenuItem value={1}>1</MenuItem>
+                      <MenuItem value={1}>{1}</MenuItem>
                       <MenuItem value={2}>2</MenuItem>
                       <MenuItem value={3}>3</MenuItem>
                       <MenuItem value={4}>4</MenuItem>
@@ -403,7 +414,7 @@ const Winner = () => {
                       <MenuItem value={8}>8</MenuItem>
                       <MenuItem value={9}>9</MenuItem>
                     </Select>
-                  </FormControl>
+                  </FormControl> */}
                 </Grid>
                 <Grid item xs={6} className="my-auto">
                   <FormControl
@@ -425,9 +436,10 @@ const Winner = () => {
                       className="winner_fields"
                       disabled={!pattiList}
                     >
-                      {pattiList.map((e) => (
-                        <MenuItem value={e}>{e}</MenuItem>
-                      ))}
+                      {pattiList &&
+                        pattiList.map((e) => (
+                          <MenuItem value={e}>{e}</MenuItem>
+                        ))}
                     </Select>
                   </FormControl>
                 </Grid>
