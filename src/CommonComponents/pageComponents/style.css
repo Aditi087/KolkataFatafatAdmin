@@ -129,15 +129,15 @@
   color: #e68236;
 }
 
+#switch_comp .css-ahj2mt-MuiTypography-root {
+  font-size: 10px !important;
+}
+
 /* Media Queries  */
 @media screen and (max-width: 1024px) {
   .search_box {
     height: 4vh;
   }
-}
-
-#switch_comp .css-ahj2mt-MuiTypography-root {
-  font-size: 10px !important;
 }
 
 .imageDragContainer {
