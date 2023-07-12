@@ -127,8 +127,8 @@ function ContestTransactionDetails() {
   return (
     <div className="Main_body">
       <TableList
-        tableTitle="Bet Details"
-        headtext="Bet For : 1  contest_id: 6346"
+        tableTitle="Bid Details"
+        headtext="Bid For : 1  contest_id: 6346"
         columns={columns}
         data={searchFn()}
         showPagination

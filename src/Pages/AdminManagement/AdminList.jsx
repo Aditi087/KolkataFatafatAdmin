@@ -60,15 +60,16 @@ function AdminList() {
       sortable: true,
     },
     {
-      name: 'Player ID',
-      selector: (row) => (row?.user_id ? row?.user_id : '--'),
+      name: 'Username',
+      selector: (row) => (row?.username ? row?.username : '--'),
       sortable: true,
       compact: true,
     },
     {
-      name: 'Email',
-      selector: (row) => (row?.email ? row?.email : '--'),
-      center: true,
+      name: 'ID',
+      selector: (row) => (row?.user_id ? row?.user_id : '--'),
+      sortable: true,
+      compact: true,
     },
     {
       name: 'Phone',

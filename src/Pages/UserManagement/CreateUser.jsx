@@ -3,7 +3,6 @@ import {
   ButtonComponent,
   Heading,
   ImagePicker,
-  SwitchButtonComponent,
 } from '../../CommonComponents/pageComponents/PageComponents';
 import {
   Box,
@@ -16,8 +15,8 @@ import { Label } from '../../CommonComponents/pageComponents/PageComponents';
 import { MdPhone, MdVisibilityOff, MdVisibility } from 'react-icons/md';
 // import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import swal from 'sweetalert';
 import { UserListView } from '../../CommonComponents/pageComponents/PageConstants';
+import swal from 'sweetalert';
 
 const CreateUser = () => {
   useEffect(() => {
@@ -33,7 +32,7 @@ const CreateUser = () => {
   const [error, setError] = useState({});
   const [cPassword, setCPassword] = useState('');
   const [confirm, setConfirm] = useState(true);
-  const [status, setStatus] = useState(0);
+  // const [status, setStatus] = useState(0);
   const [inputState, setInputState] = useState({
     name: '',
     phone: '',
@@ -61,9 +60,9 @@ const CreateUser = () => {
     } else if (!validPhone.test(inputState.phone)) {
       error.phone = 'Please Enter Valid phone number';
     }
-    if (!inputState.upi) {
-      error.upi = 'Please Enter UPI ID';
-    }
+    // if (!inputState.upi) {
+    //   error.upi = 'Please Enter UPI ID';
+    // }
     if (!inputState.password) {
       error.password = 'Enter password';
       // } else if (!validPassword.test(inputState.password)) {
@@ -89,13 +88,13 @@ const CreateUser = () => {
     setInputState({ ...inputState, [name]: value });
   };
 
-  const statusChange = (e) => {
-    if (e.target.checked) {
-      setStatus(1);
-    } else {
-      setStatus(0);
-    }
-  };
+  // const statusChange = (e) => {
+  //   if (e.target.checked) {
+  //     setStatus(1);
+  //   } else {
+  //     setStatus(0);
+  //   }
+  // };
 
   const handleConfirmPassword = (e) => {
     setCPassword(e.target.value);
@@ -108,18 +107,19 @@ const CreateUser = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    let data = {
-      player_name: inputState.name,
-      phone: inputState.phone,
-      image: image,
-      upi: inputState.upi,
-      password: inputState.password,
-      status: status,
-    };
-    // console.log(data);
+
     let ErrorList = validation();
     setError(validation());
     if (Object.keys(ErrorList).length === 0) {
+      let data = {
+        name: inputState.name,
+        phone: inputState.phone,
+        image: image,
+        upi: inputState.upi,
+        password: inputState.password,
+        // status: status,
+      };
+      console.log(data);
       UserListView.push(data);
       swal({
         title: 'User Registration Successful',
@@ -304,7 +304,7 @@ const CreateUser = () => {
             </Grid>
           </Grid>
 
-          <Grid className="fields1" container spacing={4}>
+          {/* <Grid className="fields1" container spacing={4}>
             <Grid item xs={5} className="my-auto input_title">
               <Label label="Status" />
             </Grid>
@@ -321,7 +321,7 @@ const CreateUser = () => {
                 label2="Active"
               />
             </Grid>
-          </Grid>
+          </Grid> */}
 
           <Grid
             item

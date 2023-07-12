@@ -23,3 +23,32 @@
 .news_box::-webkit-scrollbar {
   display: none;
 }
+
+.det_text_grid {
+  text-align: left;
+  background-color: rgba(132, 139, 168, 0.422);
+  padding: 5px !important;
+  border-radius: 3px;
+}
+.contest_det_text {
+  color: rgb(93, 111, 152);
+  font-weight: 500;
+  margin-left: 1rem;
+}
+.det_text_title {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+.det_head {
+  text-align: left;
+  padding: 1.4rem 3rem;
+  display: flex;
+  border-bottom: 1.2px solid rgba(93, 101, 121, 0.368);
+}
+.det_head h5 {
+  letter-spacing: 1px;
+  margin-right: 1rem;
+  color: rgb(93, 111, 152);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+}

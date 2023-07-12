@@ -159,7 +159,7 @@ const CreateAdmin = () => {
       password: inputState.password,
       status: status,
     };
-    // console.log(data);
+    console.log(data);
     let ErrorList = validation();
     setError(validation());
     if (Object.keys(ErrorList).length === 0) {
@@ -187,7 +187,7 @@ const CreateAdmin = () => {
   };
   return (
     <div className="Main_body">
-      <Heading title="Create Admin" />
+      <Heading title="Create Administrator" />
       <Box className="form_box">
         <Box
           component="form"
@@ -215,9 +215,9 @@ const CreateAdmin = () => {
                   id="demo-simple-select-filled"
                   // value={age}
                   onChange={handleRoleChange}
-                  defaultValue="admin"
+                  defaultValue="manager"
                 >
-                  <MenuItem value="admin">Admin</MenuItem>
+                  {/* <MenuItem value="admin">Admin</MenuItem> */}
                   <MenuItem value="manager">Manager</MenuItem>
                 </Select>
               </FormControl>

@@ -145,18 +145,18 @@ const UpdateAdmin = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // let data = {
-    //   name: inputState.name,
-    //   phone: inputState.phone,
-    //   email: inputState.email,
-    //   image: image,
-    //   address: inputState.address,
-    //   kyc: inputState.kyc,
-    //   upi: inputState.upi,
-    //   password: inputState.password,
-    //   status: status,
-    // };
-    // console.log(data);
+    let data = {
+      // name: inputState.name,
+      phone: inputState.phone,
+      email: inputState.email,
+      image: image,
+      address: inputState.address,
+      kyc: inputState.kyc,
+      upi: inputState.upi,
+      password: inputState.password,
+      status: status,
+    };
+    console.log(data);
     let ErrorList = validation();
     setError(validation());
     if (Object.keys(ErrorList).length === 0) {

@@ -24,11 +24,11 @@ export const mainMenu = [
     expand: true,
     subMenu: [
       {
-        name: 'Create Admin',
+        name: 'Create Administrator',
         path: '/create-admin',
       },
       {
-        name: 'View Admin',
+        name: 'View Administrator',
         path: '/admin-list',
       },
     ],

@@ -171,7 +171,7 @@ function TransactionDetails() {
 
           <Grid className="fields1" container spacing={4}>
             <Grid item xs={5} className="my-auto input_title">
-              <Label label="Bet For" />
+              <Label label="Bid For" />
             </Grid>
             <Grid item xs={7} className="my-auto">
               <TextField

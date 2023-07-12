@@ -167,7 +167,7 @@ const UpdateUser = () => {
       password: inputState.password,
       status: status,
     };
-    // console.log(data);
+    console.log(data);
     let ErrorList = validation();
     setError(validation());
     if (Object.keys(ErrorList).length === 0) {
@@ -193,9 +193,16 @@ const UpdateUser = () => {
     event.preventDefault();
   };
 
-  const handleAddMoney = () => {
+  const handleAddMoney = (event) => {
+    event.preventDefault();
+
     if (addAmount) {
       setAmountError(false);
+      let data = {
+        id: 1,
+        amount: addAmount,
+      };
+      console.log(data);
       swal('Money Successfully added');
       setAddAmount('');
     } else {
@@ -506,7 +513,7 @@ const UpdateUser = () => {
                 type="submit"
                 className="modal_btn ok_btn text-capitalize"
                 onClick={() => {
-                  navigate('/contest-bet-transaction');
+                  navigate('/contest-bid-transaction');
                 }}
               >
                 Wallet Details

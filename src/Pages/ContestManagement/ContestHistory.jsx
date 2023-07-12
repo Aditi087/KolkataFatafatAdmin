@@ -6,6 +6,7 @@ import {
 } from '../../CommonComponents/pageComponents/PageConstants';
 import { RiShareForwardLine } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom';
+import { BiDetail } from 'react-icons/bi';
 
 function ContestHistory() {
   useEffect(() => {
@@ -117,7 +118,7 @@ function ContestHistory() {
       },
     },
     {
-      name: 'Highest Bet',
+      name: 'Highest Bid',
       selector: (row) => (row?.heighest_bet ? row?.heighest_bet : '--'),
       sortable: true,
       center: true,
@@ -153,7 +154,7 @@ function ContestHistory() {
           <div>
             <button
               // onClick={(e) => navigate(`/edit-category/${data?.id}`)}
-              onClick={(e) => navigate('/bet-details')}
+              onClick={(e) => navigate('/contest-details')}
               className="actionTableRow-btn actionButton onhover"
             >
               <RiShareForwardLine
@@ -161,17 +162,21 @@ function ContestHistory() {
                 style={{ fontSize: '16px', color: '#252563' }}
               />
             </button>
-            <div className="hide">View Details</div>
+            <div className="hide">Contest Details</div>
           </div>,
-          // <div>
-          //   <button
-          //     onClick={() => {}}
-          //     className="actionTableRow-btn actionButton onhover"
-          //   >
-          //     <MdDelete />
-          //   </button>
-          //   <div className="hide">Delete Winning type</div>
-          // </div>,
+          <div>
+            <button
+              // onClick={(e) => navigate(`/edit-category/${data?.id}`)}
+              onClick={(e) => navigate('/bid-details')}
+              className="actionTableRow-btn actionButton onhover"
+            >
+              <BiDetail
+                className="m-auto"
+                style={{ fontSize: '16px', color: '#252563' }}
+              />
+            </button>
+            <div className="hide">Bidding Details</div>
+          </div>,
         ];
       },
       button: true,

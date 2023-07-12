@@ -28,6 +28,7 @@ import {
   pattiFakeData,
   pattiListFake,
   typeFilter,
+  winnerContest,
 } from '../../CommonComponents/pageComponents/PageConstants';
 import { toast } from 'react-toastify';
 import './style.css';
@@ -92,7 +93,7 @@ const Winner = () => {
 
   const columns = [
     {
-      name: 'Bet For',
+      name: 'Bid For',
       selector: (row) => (row?.bet_for ? parseInt(row?.bet_for) : '--'),
       sortable: true,
       left: true,
@@ -123,7 +124,7 @@ const Winner = () => {
       },
     },
     {
-      name: 'Total Bet',
+      name: 'Total Bid',
       selector: (row) => (row?.total_bet ? parseInt(row?.total_bet) : '--'),
       sortable: true,
       center: true,
@@ -157,7 +158,7 @@ const Winner = () => {
           <div>
             <button
               // onClick={(e) => navigate(`/edit-category/${data?.id}`)}
-              onClick={(e) => navigate('/contest-bet-transaction')}
+              onClick={(e) => navigate('/contest-bid-transaction')}
               className="actionTableRow-btn actionButton onhover"
             >
               <RiShareForwardLine
@@ -165,7 +166,7 @@ const Winner = () => {
                 style={{ fontSize: '16px', color: '#252563' }}
               />
             </button>
-            <div className="hide">View Details</div>
+            <div className="hide">Bid Details</div>
           </div>,
         ];
       },
@@ -225,24 +226,16 @@ const Winner = () => {
                     }}
                     className="winner_fields"
                   >
-                    <MenuItem value={1}>
-                      <div className="d-flex flex-column">
-                        <span className="game_name">(N) Bengal Fatafat</span>
-                        <span className="date_time">22-06-2023 - 11:30PM</span>
-                      </div>
-                    </MenuItem>
-                    <MenuItem value={2}>
-                      <div className="d-flex flex-column">
-                        <span className="game_name">Kolkata Fatafat</span>
-                        <span className="date_time">22-06-2023 - 11:30PM</span>
-                      </div>
-                    </MenuItem>
-                    <MenuItem value={3}>
-                      <div className="d-flex flex-column">
-                        <span className="game_name">Lucky Mumbai</span>
-                        <span className="date_time">22-06-2023 - 12:30PM</span>
-                      </div>
-                    </MenuItem>
+                    {winnerContest.map((e) => (
+                      <MenuItem value={e.id}>
+                        <div className="d-flex flex-column">
+                          <span className="game_name">{e.game_name}</span>
+                          <span className="date_time">
+                            {e.date} - {e.time}
+                          </span>
+                        </div>
+                      </MenuItem>
+                    ))}
                   </Select>
                 </FormControl>
               </Grid>

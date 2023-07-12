@@ -161,25 +161,27 @@ export const AdminListView = [
   {
     name: 'Admin1',
     role: 'Admin',
+    username: 'admin123',
     user_id: Math.floor(Math.random() * 20 + 1),
     phone: '9870564376',
     email: 'admin@admin.com',
     photo: '',
     upi: 'abc@paytm',
     kyc: '5435685326409',
-    last_login: new Date(),
+    address: '',
     status: 1,
   },
   {
     name: 'Manager1',
     role: 'Manager',
+    username: 'manager123',
     user_id: Math.floor(Math.random() * 20 + 1),
     phone: '7845569376',
     email: 'admin@admin.com',
     photo: '',
     upi: 'abc@paytm',
     kyc: '5435685326409',
-    last_login: new Date(),
+    address: '',
     status: 1,
   },
 ];
@@ -221,19 +223,21 @@ export const UserListView = [
     last_login: getRandomDate(),
     status: 1,
   },
-  // {
-  //   player_name: 'XYZ',
-  //   player_id: '2',
-  //   phone: '9805623276',
-  //   photo: '',
-  //   upi: 'xyz@paytm',
-  //   match_played: '79',
-  //   total_winning_amount: '5380',
-  //   win_game: '4',
-  //   wallet_balance: '1200',
-  //   last_login: getRandomDate(),
-  //   status: 1,
-  // },
+];
+
+export const winnerContest = [
+  {
+    game_name: '(N) Bengal Fatafat',
+    id: Math.floor(Math.random() * 2000 + 1),
+    date: getRandomDate(),
+    time: randomTime(),
+  },
+  {
+    game_name: 'Kolkata Fatafat',
+    id: Math.floor(Math.random() * 2000 + 1),
+    date: getRandomDate(),
+    time: randomTime(),
+  },
 ];
 
 export const ContestList = [

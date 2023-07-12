@@ -1,39 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import TableList from '../../CommonComponents/table/TableList';
 import {
-  Transaction,
-  creditFilter,
-  gameFilter,
+  ContestList,
+  typeFilter,
 } from '../../CommonComponents/pageComponents/PageConstants';
 import { RiShareForwardLine } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom';
 
-function TransactionView() {
-  useEffect(() => {
-    localStorage.setItem('om1', 'Transaction Management');
-    localStorage.setItem('om2', 'View Transaction');
-    localStorage.removeItem('om3');
-  }, []);
+function BetDetails() {
   const navigate = useNavigate();
   const [searchItem, setSearchItem] = useState('');
   const [gameName, setGameName] = useState('');
-  const [credit, setCredit] = useState('');
   const dropdownData = [
     {
-      data: gameFilter?.map((e) => {
-        return {
-          title: e?.name,
-          value: e?.value,
-        };
-      }),
-      label: 'All Game',
-      onchange: (e) => {
-        setGameName(e.target.value);
-      },
-      value: gameName,
-    },
-    {
-      data: creditFilter?.map((e) => {
+      data: typeFilter?.map((e) => {
         return {
           title: e?.name,
           value: e?.value,
@@ -41,20 +21,22 @@ function TransactionView() {
       }),
       label: 'All Type',
       onchange: (e) => {
-        setCredit(e.target.value);
+        setGameName(e.target.value);
       },
-      value: credit,
+      value: gameName,
     },
   ];
   const columns = [
     {
-      name: 'Player Name',
-      selector: (row) => (row?.player_name ? row?.player_name : '--'),
+      name: 'Bid For',
+      selector: (row) => (row?.bet_for ? row?.bet_for : '--'),
       sortable: true,
+      left: true,
     },
     {
-      name: 'Amount (INR)',
-      selector: (row) => (row?.amount ? parseInt(row?.amount) : '--'),
+      name: 'Total Bid Amount (INR)',
+      selector: (row) =>
+        row?.total_amount ? parseInt(row?.total_amount) : '--',
       sortable: true,
       left: true,
       cell: (row, index) => {
@@ -66,42 +48,29 @@ function TransactionView() {
             <b
               className="my-auto px-3"
               style={{
-                color: '#cd0c86',
+                color: '#f6173c',
               }}
             >
-              <span>{row?.amount ? row?.amount : '--'}</span>
+              <span>{row?.total_amount ? row?.total_amount : '--'}</span>
             </b>
           </div>,
         ];
       },
     },
     {
-      name: 'Bid For',
-      selector: (row) => (row?.bet_for ? row?.bet_for : '--'),
-      sortable: true,
-      center: true,
-    },
-
-    {
-      name: 'Game',
-      selector: (row) => (row?.game ? row?.game : '--'),
+      name: 'Total Bid',
+      selector: (row) => (row?.total_bet ? row?.total_bet : '--'),
       sortable: true,
       center: true,
     },
     {
-      name: 'Transaction Type',
-      selector: (row) => (row?.tr_type ? row?.tr_type : '--'),
+      name: 'Total Player',
+      selector: (row) =>
+        row?.total_player
+          ? row?.total_player
+          : Math.floor(Math.random() * 200 + 1),
       sortable: true,
       center: true,
-      cell: (row, index) => {
-        return [
-          <b>
-            <span className={row?.tr_type === 'Credit' ? 'type_cr' : 'type_dr'}>
-              {row?.tr_type ? row?.tr_type : '--'}
-            </span>
-          </b>,
-        ];
-      },
     },
     {
       name: 'Action',
@@ -117,7 +86,7 @@ function TransactionView() {
           <div>
             <button
               // onClick={(e) => navigate(`/edit-category/${data?.id}`)}
-              onClick={(e) => navigate('/transaction-details')}
+              onClick={(e) => navigate('/contest-bid-transaction')}
               className="actionTableRow-btn actionButton onhover"
             >
               <RiShareForwardLine
@@ -125,7 +94,7 @@ function TransactionView() {
                 style={{ fontSize: '16px', color: '#252563' }}
               />
             </button>
-            <div className="hide">View Details</div>
+            <div className="hide">Bid Transaction Details</div>
           </div>,
           // <div>
           //   <button
@@ -143,45 +112,34 @@ function TransactionView() {
   ];
 
   const searchFn = () => {
-    let newData = Transaction.filter(
+    let newData = ContestList[0].bet_details.filter(
       (v) =>
-        (v?.player_name &&
-          v?.player_name
-            .toString()
-            .toLowerCase()
-            .includes(searchItem.toString().toLowerCase()) &&
-          v?.game &&
-          v?.game.toLowerCase().includes(gameName.toLowerCase()) &&
-          v?.tr_type &&
-          v?.tr_type.toLowerCase().includes(credit.toLowerCase())) ||
-        (v?.type &&
-          v?.type.toLowerCase().includes(searchItem.toLowerCase()) &&
-          v?.game &&
-          v?.game.toLowerCase().includes(gameName.toLowerCase()) &&
-          v?.tr_type &&
-          v?.tr_type.toLowerCase().includes(credit.toLowerCase()))
+        v?.type &&
+        v?.type.toLowerCase().includes(gameName.toString().toLowerCase()) &&
+        v?.bet_for &&
+        v?.bet_for.toLowerCase().includes(searchItem.toLowerCase())
     );
     return newData;
   };
   const refreshClick = () => {
-    setCredit('');
     setGameName('');
     setSearchItem('');
   };
   return (
     <div className="Main_body">
       <TableList
-        tableTitle="Game Transaction"
+        tableTitle="Bid Details"
         columns={columns}
         data={searchFn()}
         showPagination
         utilities
-        search={Transaction.length > 0}
+        // search={ContestList.length > 0}
+        search
         searchValue={searchItem}
         searchOnchange={(e) => {
           setSearchItem(e.target.value);
         }}
-        searchPlaceholder="Search by name or type"
+        searchPlaceholder="Search by patti or digit"
         refreshClick={refreshClick}
         filters
         dropdownData={dropdownData}
@@ -190,4 +148,4 @@ function TransactionView() {
   );
 }
 
-export default TransactionView;
+export default BetDetails;

@@ -30,7 +30,7 @@ function Dashboard() {
       sortable: true,
     },
     {
-      name: 'Bet For',
+      name: 'Bid For',
       selector: (row) => (row?.bet_for ? row?.bet_for : '--'),
       sortable: true,
       center: true,

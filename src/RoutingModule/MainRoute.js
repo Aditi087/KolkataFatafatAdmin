@@ -19,6 +19,7 @@ import WalletRequestDetails from '../Pages/TransactionManagement/WalletRequestDe
 import UpdateUser from '../Pages/UserManagement/UpdateUser';
 import ContestDetails from '../Pages/ContestManagement/ContestDetails';
 import ContestTransactionDetails from '../Pages/ContestManagement/ContestTransactionDetails';
+import BetDetails from '../Pages/ContestManagement/BetDetails';
 
 function MainRoute() {
   return (
@@ -47,10 +48,11 @@ function MainRoute() {
 
         {/* --------------------------------- Contest --------------------------------  */}
         <Route path="/contest-history" element={<ContestHistory />} />
-        <Route path="/bet-details" element={<ContestDetails />} />
+        <Route path="/contest-details" element={<ContestDetails />} />
+        <Route path="/bid-details" element={<BetDetails />} />
         <Route path="/winner-declaration" element={<Winner />} />
         <Route
-          path="/contest-bet-transaction"
+          path="/contest-bid-transaction"
           element={<ContestTransactionDetails />}
         />
 
