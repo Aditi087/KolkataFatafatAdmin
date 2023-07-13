@@ -65,10 +65,12 @@ const Winner = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // let data = {
-    //   // name: inputState.name,
-    // };
-    // console.log(data);
+    let data = {
+      id: 1,
+      singleDigit: singleDigit,
+      patti: patti,
+    };
+    console.log(data, 'dddd');
 
     if (gameName && type && singleDigit && patti) {
       swal({

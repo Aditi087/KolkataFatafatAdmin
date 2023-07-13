@@ -25,6 +25,7 @@ a {
   --blue: #193382;
   --text-color-gray: #717171;
   --purple: #cd0cc0;
+  font-size: 15px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
