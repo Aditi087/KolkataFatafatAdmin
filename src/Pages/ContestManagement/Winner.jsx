@@ -25,7 +25,7 @@ import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import {
   ContestList,
-  pattiFakeData,
+  singleDigitData,
   pattiListFake,
   typeFilter,
   winnerContest,
@@ -51,6 +51,17 @@ const Winner = () => {
   const [patti, setPatti] = useState('');
   const [singleDigit, setSingleDigit] = useState('');
   const [pattiList, setPattiList] = useState([]);
+
+  function getSum(n) {
+    var sum = 0;
+    var digit = '';
+    while (n != 0) {
+      sum = sum + (n % 10);
+      n = parseInt(n / 10);
+      digit = sum.toString().slice(-1);
+    }
+    return digit;
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -285,16 +296,16 @@ const Winner = () => {
                       variant="filled"
                       options={pattiListFake}
                       autoHighlight
-                      getOptionLabel={(option) => patti && option.patti}
+                      getOptionLabel={(option) => patti && option}
                       renderOption={(props, option) => (
                         <Box component="li" {...props}>
-                          <span>{option.patti}</span>
+                          <span>{option}</span>
                         </Box>
                       )}
                       onChange={(e, newValue) => {
                         if (newValue) {
-                          setPatti(newValue.patti_value);
-                          setSingleDigit(newValue.digit_value);
+                          setPatti(newValue);
+                          setSingleDigit(getSum(newValue));
                         } else {
                           setPatti('');
                           setSingleDigit('');
@@ -345,7 +356,7 @@ const Winner = () => {
                       id="size-small-outlined"
                       size="small"
                       variant="filled"
-                      options={pattiFakeData}
+                      options={singleDigitData}
                       autoHighlight
                       getOptionLabel={(option) =>
                         singleDigit && option.single_dig
