@@ -1,19 +1,19 @@
 import logoImg from '../../assets/LOGO.png';
 
 export const GameResult = [
-  { time: '10:00 AM', single_dig: '3', Patti: '111', status: 'finished' },
-  { time: '10:30 AM', single_dig: '6', Patti: '259', status: 'finished' },
-  { time: '11:00 AM', single_dig: '3', Patti: '355', status: 'finished' },
-  { time: '11:30 AM', single_dig: '5', Patti: '447', status: 'finished' },
-  { time: '12:00 PM', single_dig: '3', Patti: '490', status: 'live' },
-  { time: '12:30 PM', single_dig: '0', Patti: '145', status: 'upcoming' },
-  { time: '01:00 PM', single_dig: '5', Patti: '267', status: 'upcoming' },
-  { time: '01:30 PM', single_dig: '9', Patti: '108', status: 'upcoming' },
+  { time: '10:30', single_dig: '3', Patti: '111', status: 'finished' },
+  { time: '12:00', single_dig: '6', Patti: '259', status: 'finished' },
+  { time: '13:30', single_dig: '3', Patti: '355', status: 'finished' },
+  { time: '15:00', single_dig: '5', Patti: '447', status: 'finished' },
+  { time: '16:30', single_dig: '3', Patti: '490', status: 'live' },
+  { time: '18:00', single_dig: '0', Patti: '145', status: 'upcoming' },
+  { time: '19:30', single_dig: '5', Patti: '267', status: 'upcoming' },
+  { time: '21:00', single_dig: '9', Patti: '108', status: 'upcoming' },
 ];
 
 export const LuckyMumbaiResult = [
-  { time: '10:30 PM', single_dig: '9', Patti: '999', status: 'upcoming' },
-  { time: '12:00 AM', single_dig: '5', Patti: '258', status: 'upcoming' },
+  { time: '10:30', single_dig: '9', Patti: '999', status: 'upcoming' },
+  { time: '12:00', single_dig: '5', Patti: '258', status: 'upcoming' },
 ];
 
 export const Transaction = [
@@ -1467,3 +1467,7 @@ export const statusFilter = [
 
 export const profileImage = '../../assets/profile.png';
 export const logo = logoImg;
+
+export const today = new Date();
+
+export const current_time = today.getHours() + ':' + today.getMinutes();

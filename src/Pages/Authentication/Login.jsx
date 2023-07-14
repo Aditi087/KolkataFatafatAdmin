@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import { MdPhone, MdVisibility, MdVisibilityOff } from 'react-icons/md';
 // import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import {
   ButtonComponent,
@@ -96,7 +96,7 @@ const Login = () => {
     event.preventDefault();
   };
   return (
-    <div className="d-flex log_body p-5">
+    <div className="d-flex flex-column log_body p-5">
       <Box className="form_box log_box m-auto">
         <Box
           component="form"
@@ -180,6 +180,9 @@ const Login = () => {
             <ButtonComponent text="submit" submit={handleSubmit} />
           </Grid>
         </Box>
+        <span className="log_bottom_line">
+          Go to <Link to={'/'}>Homepage</Link>
+        </span>
       </Box>
     </div>
   );

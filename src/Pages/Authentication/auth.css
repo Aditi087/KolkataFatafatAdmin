@@ -14,6 +14,7 @@
   height: fit-content;
   padding: 20px;
   display: flex;
+  flex-direction: column;
   border-radius: 2px;
 }
 .log_logo {
@@ -48,6 +49,13 @@
 }
 .fields2 input {
   color: var(--theme-color-blue);
+}
+
+.log_bottom_line {
+  font-size: 14px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: rgb(26, 24, 43);
 }
 
 @media (min-width: 320px) and (max-width: 767px) {

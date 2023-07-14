@@ -5,6 +5,7 @@ import TableBody from '@mui/material/TableBody';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import { liveFunction, time } from '../pageComponents/PageComponents';
 
 const ResultTable = ({ tableName, GameResult }) => {
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -32,6 +33,7 @@ const ResultTable = ({ tableName, GameResult }) => {
     //   border: 0,
     // },
   }));
+
   return (
     <div>
       <Table
@@ -64,7 +66,7 @@ const ResultTable = ({ tableName, GameResult }) => {
                 className={row?.status === 'live' && 'live_row'}
                 align="left"
               >
-                {row.time}
+                {time(row.time)}
               </StyledTableCell>
               <StyledTableCell
                 align="center"
@@ -75,6 +77,11 @@ const ResultTable = ({ tableName, GameResult }) => {
                   : row.status === 'live'
                   ? 'Live'
                   : row.single_dig}
+                {/* {
+                  // index > 0 &&
+                  //   index < GameResult.length - 1 &&
+                  liveFunction(index)
+                } */}
               </StyledTableCell>
               {row.status === 'finished' && (
                 <StyledTableCell align="right">{row.Patti}</StyledTableCell>

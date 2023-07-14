@@ -12,6 +12,7 @@ import { FiEdit, FiSearch } from 'react-icons/fi';
 import { Modal } from 'react-bootstrap';
 import { ThreeDots } from 'react-loader-spinner';
 import profileImage from '../../assets/profile3.png';
+import { GameResult, current_time } from './PageConstants';
 
 export const LoaderERP = (props) => {
   return (
@@ -436,3 +437,50 @@ export const Label = ({ label, mandatory }) => {
     </div>
   );
 };
+
+export const time = (time) => {
+  var h = time.split(':')[0],
+    m = time.split(':')[1];
+  var _time =
+    h > 12
+      ? h - 12 + ':' + m + ' PM'
+      : h === 12
+      ? h + ':' + m + ' PM'
+      : h + ':' + m + ' AM';
+  return _time;
+};
+
+// export const liveFunction = (index) => {
+//   var curr_time;
+//   for (let index = 0; index < array.length; index++) {
+//     let live =
+
+//   }
+//   if (
+//     index === 0 &&
+//     current_time.split(':')[0] > GameResult[index - 1].time.split(':')[0]
+//   ) {
+//   }
+//   if (
+//     index > 0 &&
+//     index < GameResult.length - 1 &&
+//     current_time.split(':')[0] > GameResult[index - 1].time.split(':')[0]
+//   ) {
+//     //   var a = GameResult[index - 1].time.split(':')[0];
+//     //   console.log(a);
+//     // if (
+//     //   current_time.split(':')[0] > result.split(':')[0]
+//     //   // &&
+//     //   // current_time < GameResult[index + 1].time
+//     // ) {
+//     curr_time = 'live';
+//     // }
+//   } else {
+//     curr_time = 'result';
+//   }
+//   // index > 0 &&
+//   //   index < GameResult.length - 1 &&
+//   //   current_time > GameResult[index - 1].time &&
+//   //   current_time < GameResult[index + 1].time;
+//   return curr_time;
+// };

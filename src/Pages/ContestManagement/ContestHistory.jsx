@@ -7,6 +7,7 @@ import {
 import { RiShareForwardLine } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom';
 import { BiDetail } from 'react-icons/bi';
+import { time } from '../../CommonComponents/pageComponents/PageComponents';
 
 function ContestHistory() {
   useEffect(() => {
@@ -33,17 +34,7 @@ function ContestHistory() {
       value: gameName,
     },
   ];
-  const time = (time) => {
-    var h = time.split(':')[0],
-      m = time.split(':')[1];
-    var _time =
-      h > 12
-        ? h - 12 + ':' + m + ' PM'
-        : h === 12
-        ? h + ':' + m + ' PM'
-        : h + ':' + m + ' AM';
-    return _time;
-  };
+
   const columns = [
     {
       name: 'Game Name',
