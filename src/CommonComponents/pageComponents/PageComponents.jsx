@@ -12,7 +12,6 @@ import { FiEdit, FiSearch } from 'react-icons/fi';
 import { Modal } from 'react-bootstrap';
 import { ThreeDots } from 'react-loader-spinner';
 import profileImage from '../../assets/profile3.png';
-import { GameResult, current_time } from './PageConstants';
 
 export const LoaderERP = (props) => {
   return (
@@ -439,48 +438,67 @@ export const Label = ({ label, mandatory }) => {
 };
 
 export const time = (time) => {
-  var h = time.split(':')[0],
+  var h = parseInt(time.split(':')[0]),
     m = time.split(':')[1];
   var _time =
     h > 12
       ? h - 12 + ':' + m + ' PM'
       : h === 12
       ? h + ':' + m + ' PM'
+      : h === parseInt('00')
+      ? '12' + ':' + '00' + ' AM' //eslint-disable-line
       : h + ':' + m + ' AM';
+
   return _time;
 };
 
-// export const liveFunction = (index) => {
-//   var curr_time;
-//   for (let index = 0; index < array.length; index++) {
-//     let live =
+export const timeConvrt = (time) => {
+  let day = new Date().getDate();
+  let month = new Date().getMonth();
+  let year = new Date().getFullYear();
+  let newdate = month + '/' + day + '/' + year;
+  let t = newdate + ' ' + time;
+  let timestamp = new Date(t).getTime();
+  // console.log(time, 'uuuu');
+  return timestamp;
+};
+export const liveFunction = (index, GameResult) => {
+  let curr_time = new Date().getTime();
+  var status;
+  let start_time = timeConvrt(GameResult[index].start_time);
+  let result_time = timeConvrt(GameResult[index].resultTime);
+  let timeDiffStart = curr_time - start_time;
+  let timeDiffResult = result_time - curr_time;
+  let timeDiffResultEnd = timeConvrt('23:59') - curr_time;
+  console.log(
+    timeDiffStart
+    // GameResult[GameResult.length - 1].resultTime.split(':')[0]
+    // time(GameResult[index].start_time)
+  );
+  // setInterval(() => {
+  // for (index = 0; index < GameResult.length; index++) {
+  if (GameResult[index].resultTime.split(':')[0] === '00') {
+    if (timeDiffStart > 0) {
+      status = 'upcoming...';
+    } else if (
+      timeDiffStart < 0 &&
+      timeDiffStart === 0 &&
+      timeDiffResultEnd < 0
+    ) {
+      status = 'live';
+    } else if (timeDiffResultEnd > 0) {
+      status = 'finished';
+    }
+  } else {
+    if (timeDiffStart > 0) {
+      status = 'upcoming...';
+    } else if (timeDiffStart < 0 && timeDiffStart === 0 && timeDiffResult < 0) {
+      status = 'live';
+    } else if (timeDiffResult > 0) {
+      status = 'finished';
+    }
+  }
+  // }, GameResult[index].resultTime);
 
-//   }
-//   if (
-//     index === 0 &&
-//     current_time.split(':')[0] > GameResult[index - 1].time.split(':')[0]
-//   ) {
-//   }
-//   if (
-//     index > 0 &&
-//     index < GameResult.length - 1 &&
-//     current_time.split(':')[0] > GameResult[index - 1].time.split(':')[0]
-//   ) {
-//     //   var a = GameResult[index - 1].time.split(':')[0];
-//     //   console.log(a);
-//     // if (
-//     //   current_time.split(':')[0] > result.split(':')[0]
-//     //   // &&
-//     //   // current_time < GameResult[index + 1].time
-//     // ) {
-//     curr_time = 'live';
-//     // }
-//   } else {
-//     curr_time = 'result';
-//   }
-//   // index > 0 &&
-//   //   index < GameResult.length - 1 &&
-//   //   current_time > GameResult[index - 1].time &&
-//   //   current_time < GameResult[index + 1].time;
-//   return curr_time;
-// };
+  return status;
+};

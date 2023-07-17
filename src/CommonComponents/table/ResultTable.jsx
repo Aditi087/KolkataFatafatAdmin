@@ -58,32 +58,37 @@ const ResultTable = ({ tableName, GameResult }) => {
           {GameResult.map((row, index) => (
             <StyledTableRow
               key={index}
-              className={row?.status === 'live' && 'live_row'}
+              className={
+                liveFunction(index, GameResult) === 'live' && 'live_row'
+              }
             >
               <StyledTableCell
                 component="th"
                 scope="row"
-                className={row?.status === 'live' && 'live_row'}
+                className={
+                  liveFunction(index, GameResult) === 'live' && 'live_row'
+                }
                 align="left"
               >
-                {time(row.time)}
+                {time(row.resultTime)}
               </StyledTableCell>
               <StyledTableCell
                 align="center"
-                colSpan={row.status !== 'finished' && 2}
+                colSpan={liveFunction(index, GameResult) !== 'finished' && 2}
               >
-                {row.status === 'upcoming'
+                {/* {row.status === 'upcoming'
                   ? 'Upcoming..'
                   : row.status === 'live'
                   ? 'Live'
+                  : row.single_dig} */}
+                {/* {row.single_dig
+                  ? row.single_dig
+                  : liveFunction(index, row.single_dig)} */}
+                {liveFunction(index, GameResult) !== 'finished'
+                  ? liveFunction(index, GameResult)
                   : row.single_dig}
-                {/* {
-                  // index > 0 &&
-                  //   index < GameResult.length - 1 &&
-                  liveFunction(index)
-                } */}
               </StyledTableCell>
-              {row.status === 'finished' && (
+              {liveFunction(index, GameResult) === 'finished' && (
                 <StyledTableCell align="right">{row.Patti}</StyledTableCell>
               )}
             </StyledTableRow>
