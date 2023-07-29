@@ -13,24 +13,24 @@ import { Grid } from '@mui/material';
 
 export const HomePage = () => {
   const DownloadButton = ({ fileUrl }) => {
-    const handleClick = () => {
-      const link = document.createElement('a');
-      link.href = fileUrl;
-      link.setAttribute('download', '');
-      document.body.appendChild(link);
-      link.click();
-    };
+    // const handleClick = () => {
+    //   const link = document.createElement('a');
+    //   link.href = fileUrl;
+    //   link.setAttribute('download', '');
+    //   document.body.appendChild(link);
+    //   link.click();
+    // };
     // const handleDownload = () => {
     //   window.location.href = '/download';
     // };
 
     const handleDownload = () => {
       window.open(
-        'https://www.dropbox.com/scl/fi/gp79494q7tra0zsvgccgh/base-2.apk?dl=0&rlkey=h95a6esdv8towo2vcvx4u9ua1'
+        'https://www.dropbox.com/scl/fi/gp79494q7tra0zsvgccgh/base-2.apk?rlkey=h95a6esdv8towo2vcvx4u9ua1&dl=0'
       );
     };
     return (
-      <button className="ghost_btn download_btn" onClick={handleClick}>
+      <button className="ghost_btn download_btn" onClick={handleDownload}>
         <FaDownload className="my-auto" />
       </button>
     );
@@ -56,7 +56,9 @@ export const HomePage = () => {
           {/* <button className="ghost_btn download_btn">
             <FaDownload className="my-auto" />
           </button> */}
-          <DownloadButton fileUrl={'/public/assets/kolkatafatafat.apk'} />
+          <DownloadButton
+          // fileUrl={'/public/assets/kolkatafatafat.apk'}
+          />
         </div>
         <div className="home_result">
           <Grid container spacing={2}>
