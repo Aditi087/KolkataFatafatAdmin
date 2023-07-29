@@ -238,35 +238,6 @@ export const DropdownComponent = ({
   return (
     <div className="m-auto">
       <Form.Group className="px-2 d-flex">
-        {/* {filterName && <Form.Label className="pe-1 m-auto">{filterName}</Form.Label>} */}
-        {/* <FormControl
-          sx={{
-            minWidth: '100px',
-            width: 'max-width',
-          }}
-          size="small"
-        >
-          <InputLabel
-            id="demo-select-small-label"
-            style={{ fontSize: '12px', color: white && 'white' }}
-          >
-            {filterName}
-          </InputLabel>
-          <Select
-            labelId="demo-select-small-label"
-            id="demo-select-small"
-            style={{ fontSize: '12px', color: white && 'white' }}
-            value={dropdownvalue}
-            onChange={dropdownChange}
-            label={''}
-          >
-            {dropdownData?.map((d, index) => (
-              <MenuItem value={d.value} key={index}>
-                {d.title}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl> */}
         <Form.Select
           size="sm"
           aria-label="Default select example"

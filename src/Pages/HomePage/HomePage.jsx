@@ -13,20 +13,20 @@ import { Grid } from '@mui/material';
 
 export const HomePage = () => {
   const DownloadButton = ({ fileUrl }) => {
-    const handleClick = () => {
-      const link = document.createElement('a');
-      link.href = fileUrl;
-      link.setAttribute('download', '');
-      document.body.appendChild(link);
-      link.click();
-    };
+    // const handleClick = () => {
+    //   const link = document.createElement('a');
+    //   link.href = fileUrl;
+    //   link.setAttribute('download', '');
+    //   document.body.appendChild(link);
+    //   link.click();
+    // };
     // const handleDownload = () => {
     //   window.location.href = '/download';
     // };
 
     const handleDownload = () => {
       window.open(
-        'https://drive.google.com/u/0/uc?id=1FeJq_NDUCsyWpyh7KREjZxdHBFb0l5sE&export=download'
+        'https://www.dropbox.com/scl/fi/gp79494q7tra0zsvgccgh/base-2.apk?dl=0&rlkey=h95a6esdv8towo2vcvx4u9ua1'
       );
     };
     return (
