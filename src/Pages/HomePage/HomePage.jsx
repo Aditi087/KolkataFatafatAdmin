@@ -13,13 +13,13 @@ import { Grid } from '@mui/material';
 
 export const HomePage = () => {
   const DownloadButton = ({ fileUrl }) => {
-    // const handleClick = () => {
-    //   const link = document.createElement('a');
-    //   link.href = fileUrl;
-    //   link.setAttribute('download', '');
-    //   document.body.appendChild(link);
-    //   link.click();
-    // };
+    const handleClick = () => {
+      const link = document.createElement('a');
+      link.href = fileUrl;
+      link.setAttribute('download', '');
+      document.body.appendChild(link);
+      link.click();
+    };
     // const handleDownload = () => {
     //   window.location.href = '/download';
     // };
@@ -30,7 +30,7 @@ export const HomePage = () => {
       );
     };
     return (
-      <button className="ghost_btn download_btn" onClick={handleDownload}>
+      <button className="ghost_btn download_btn" onClick={handleClick}>
         <FaDownload className="my-auto" />
       </button>
     );
