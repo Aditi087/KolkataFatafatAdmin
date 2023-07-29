@@ -13,15 +13,20 @@ import { Grid } from '@mui/material';
 
 export const HomePage = () => {
   const DownloadButton = ({ fileUrl }) => {
-    const handleClick = () => {
-      const link = document.createElement('a');
-      link.href = fileUrl;
-      link.setAttribute('download', '');
-      document.body.appendChild(link);
-      link.click();
+    // const handleClick = () => {
+    //   const link = document.createElement('a');
+    //   link.href = fileUrl;
+    //   link.setAttribute('download', '');
+    //   document.body.appendChild(link);
+    //   link.click();
+    // };
+    const handleDownload = () => {
+      window.open(
+        'https://drive.google.com/u/0/uc?id=1FeJq_NDUCsyWpyh7KREjZxdHBFb0l5sE&export=download'
+      );
     };
     return (
-      <button className="ghost_btn download_btn" onClick={handleClick}>
+      <button className="ghost_btn download_btn" onClick={handleDownload}>
         <FaDownload className="my-auto" />
       </button>
     );
@@ -47,7 +52,11 @@ export const HomePage = () => {
           {/* <button className="ghost_btn download_btn">
             <FaDownload className="my-auto" />
           </button> */}
-          <DownloadButton fileUrl={'../../assets/kolkatafatafat.apk'} />
+          <DownloadButton
+          // fileUrl={
+          //   'https://drive.google.com/u/0/uc?id=1FeJq_NDUCsyWpyh7KREjZxdHBFb0l5sE&export=download'
+          // }
+          />
         </div>
         <div className="home_result">
           <Grid container spacing={2}>
