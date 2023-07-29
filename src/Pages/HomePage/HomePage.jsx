@@ -12,6 +12,21 @@ import {
 import { Grid } from '@mui/material';
 
 export const HomePage = () => {
+  const DownloadButton = ({ fileUrl }) => {
+    const handleClick = () => {
+      const link = document.createElement('a');
+      link.href = fileUrl;
+      link.setAttribute('download', '');
+      document.body.appendChild(link);
+      link.click();
+    };
+    return (
+      <button className="ghost_btn download_btn" onClick={handleClick}>
+        <FaDownload className="my-auto" />
+      </button>
+    );
+  };
+
   return (
     <div className="home_body">
       <div className="home_nav sticky-top px-4">
@@ -29,9 +44,10 @@ export const HomePage = () => {
         </div>
         <div className="mt-5">
           <h6>Download Kolkata Fatafat APK</h6>
-          <button className="ghost_btn download_btn">
+          {/* <button className="ghost_btn download_btn">
             <FaDownload className="my-auto" />
-          </button>
+          </button> */}
+          <DownloadButton fileUrl={'../../assets/kolkatafatafat.apk'} />
         </div>
         <div className="home_result">
           <Grid container spacing={2}>

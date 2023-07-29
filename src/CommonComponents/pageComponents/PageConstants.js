@@ -15,48 +15,48 @@ export const GameResult = [
     status: 'finished',
     start_time: '10:30',
   },
-  {
-    resultTime: '13:30',
-    single_dig: '3',
-    Patti: '355',
-    status: 'finished',
-    start_time: '12:00',
-  },
-  {
-    resultTime: '15:00',
-    single_dig: '5',
-    Patti: '447',
-    status: 'finished',
-    start_time: '13:30',
-  },
-  {
-    resultTime: '16:30',
-    single_dig: '3',
-    Patti: '490',
-    status: 'live',
-    start_time: '15:00',
-  },
-  {
-    resultTime: '18:00',
-    single_dig: '0',
-    Patti: '145',
-    status: 'upcoming',
-    start_time: '16:30',
-  },
-  {
-    resultTime: '19:30',
-    single_dig: '5',
-    Patti: '267',
-    status: 'upcoming',
-    start_time: '18:00',
-  },
-  {
-    resultTime: '21:00',
-    single_dig: '9',
-    Patti: '108',
-    status: 'upcoming',
-    start_time: '19:30',
-  },
+  // {
+  //   resultTime: '13:30',
+  //   single_dig: '3',
+  //   Patti: '355',
+  //   status: 'finished',
+  //   start_time: '12:00',
+  // },
+  // {
+  //   resultTime: '15:00',
+  //   single_dig: '5',
+  //   Patti: '447',
+  //   status: 'finished',
+  //   start_time: '13:30',
+  // },
+  // {
+  //   resultTime: '16:30',
+  //   single_dig: '3',
+  //   Patti: '490',
+  //   status: 'live',
+  //   start_time: '15:00',
+  // },
+  // {
+  //   resultTime: '18:00',
+  //   single_dig: '0',
+  //   Patti: '145',
+  //   status: 'upcoming',
+  //   start_time: '16:30',
+  // },
+  // {
+  //   resultTime: '19:30',
+  //   single_dig: '5',
+  //   Patti: '267',
+  //   status: 'upcoming',
+  //   start_time: '18:00',
+  // },
+  // {
+  //   resultTime: '21:00',
+  //   single_dig: '9',
+  //   Patti: '108',
+  //   status: 'upcoming',
+  //   start_time: '19:30',
+  // },
 ];
 
 export const LuckyMumbaiResult = [
@@ -269,6 +269,7 @@ function randomTime() {
     ? String(hFormat + hrs + ':' + mFormat + mins + ' ' + amPm)
     : String(hFormat + (hrs - 12) + ':' + mFormat + mins + ' ' + amPm);
 }
+
 export const UserListView = [
   {
     player_name: 'ABC',

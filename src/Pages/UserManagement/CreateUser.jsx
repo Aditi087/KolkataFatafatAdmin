@@ -13,10 +13,11 @@ import {
 } from '@mui/material';
 import { Label } from '../../CommonComponents/pageComponents/PageComponents';
 import { MdPhone, MdVisibilityOff, MdVisibility } from 'react-icons/md';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { UserListView } from '../../CommonComponents/pageComponents/PageConstants';
 import swal from 'sweetalert';
+import { createUser } from '../../redux/slice/UserSlice';
 
 const CreateUser = () => {
   useEffect(() => {
@@ -26,9 +27,8 @@ const CreateUser = () => {
   }, []);
 
   const validPhone = RegExp(/^[6-9]{1}[0-9]{9}$/);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [image, setImage] = useState(null);
   const [error, setError] = useState({});
   const [cPassword, setCPassword] = useState('');
   const [confirm, setConfirm] = useState(true);
@@ -107,30 +107,28 @@ const CreateUser = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    let data = {
+      name: inputState.name,
+      phone: inputState.phone,
+      upi: inputState.upi,
+      password: inputState.password,
+      // status: status,
+    };
     let ErrorList = validation();
     setError(validation());
     if (Object.keys(ErrorList).length === 0) {
-      let data = {
-        name: inputState.name,
-        phone: inputState.phone,
-        image: image,
-        upi: inputState.upi,
-        password: inputState.password,
-        // status: status,
-      };
       console.log(data);
-      UserListView.push(data);
-      swal({
-        title: 'User Registration Successful',
-        text: 'Check it in the User List',
-        icon: 'success',
-        button: 'OK',
-      });
-      navigate('/user-list');
-      // dispatch(createAdmin({ data })).then(() => {
-      //   navigate('/');
+      // UserListView.push(data);
+      // swal({
+      //   title: 'User Registration Successful',
+      //   text: 'Check it in the User List',
+      //   icon: 'success',
+      //   button: 'OK',
       // });
+
+      dispatch(createUser({ data })).then(() => {
+        navigate('/user-list');
+      });
     }
   };
 
@@ -201,15 +199,6 @@ const CreateUser = () => {
                 }}
                 placeholder="Enter Phone Number"
               />
-            </Grid>
-          </Grid>
-
-          <Grid className="fields1" container spacing={4}>
-            <Grid item xs={5} className="my-auto input_title">
-              <Label label="Photo" />
-            </Grid>
-            <Grid item xs={7} className="my-auto">
-              <ImagePicker image={image} setImage={setImage} />
             </Grid>
           </Grid>
 
@@ -303,25 +292,6 @@ const CreateUser = () => {
               />
             </Grid>
           </Grid>
-
-          {/* <Grid className="fields1" container spacing={4}>
-            <Grid item xs={5} className="my-auto input_title">
-              <Label label="Status" />
-            </Grid>
-            <Grid
-              item
-              xs={7}
-              className="my-auto ps-5 d-flex align-content-start"
-            >
-              <SwitchButtonComponent
-                value={status}
-                onChange={statusChange}
-                label
-                label1="Inactive"
-                label2="Active"
-              />
-            </Grid>
-          </Grid> */}
 
           <Grid
             item

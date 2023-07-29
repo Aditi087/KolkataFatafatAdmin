@@ -11,7 +11,7 @@ import {
   TextField,
 } from '@mui/material';
 import { MdPhone, MdVisibility, MdVisibilityOff } from 'react-icons/md';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import {
@@ -20,10 +20,11 @@ import {
 } from '../../CommonComponents/pageComponents/PageComponents';
 import { logo } from '../../CommonComponents/pageComponents/PageConstants';
 import { toast } from 'react-toastify';
+import { adminLogin } from '../../redux/slice/AuthenticationSlice';
 
 const Login = () => {
   const validPhone = RegExp(/^[6-9]{1}[0-9]{9}$/);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [error, setError] = useState({});
   const [inputState, setInputState] = useState({
@@ -69,8 +70,20 @@ const Login = () => {
     let ErrorList = validation();
     setError(validation());
     if (Object.keys(ErrorList).length === 0) {
-      if (data.phone === '9876543210' && data.password === '123456') {
-        localStorage.setItem('token', 'token');
+      // if (data.phone === '9876543210' && data.password === '123456') {
+      //   localStorage.setItem('token', 'token');
+      //   swal({
+      //     title: 'Login Successfull',
+      //     // text: 'Check it in the User List',
+      //     icon: 'success',
+      //     button: 'OK',
+      //   });
+      //   navigate('/dashboard');
+      // } else {
+      //   toast.error('wrong phone or password');
+      // }
+
+      dispatch(adminLogin({ data })).then(() => {
         swal({
           title: 'Login Successfull',
           // text: 'Check it in the User List',
@@ -78,13 +91,7 @@ const Login = () => {
           button: 'OK',
         });
         navigate('/dashboard');
-      } else {
-        toast.error('wrong phone or password');
-      }
-
-      // dispatch(createAdmin({ data })).then(() => {
-      //   navigate('/');
-      // });
+      });
     }
   };
 

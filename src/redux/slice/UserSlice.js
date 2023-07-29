@@ -16,7 +16,7 @@ const initialState = {
 export const createUser = createAsyncThunk('create-user', async ({ data }) => {
   console.log(data, 'kkk');
   const response = await ApiHelperFunction({
-    // urlPath: `/createUser`,
+    urlPath: `/user/create`,
     method: 'POST',
     data: data,
   });
@@ -37,7 +37,7 @@ export const createUser = createAsyncThunk('create-user', async ({ data }) => {
 
 export const viewUserList = createAsyncThunk('view-user-list', async (data) => {
   const response = await ApiHelperFunction({
-    urlPath: `/view/user`,
+    urlPath: `/user/read/all`,
     method: 'POST',
     data: data,
   });
@@ -52,8 +52,8 @@ export const viewUserList = createAsyncThunk('view-user-list', async (data) => {
 export const getUserById = createAsyncThunk('get-user-by-id', async (id) => {
   // console.log(data, 'kkk');
   const response = await ApiHelperFunction({
-    urlPath: `/edit/contest/discount/${id}`,
-    method: 'GET',
+    urlPath: `/user/read/${id}`,
+    method: 'POST',
     // data: data
   });
   // console.log(response, 'uiui');
@@ -87,6 +87,31 @@ export const UpdateUser = createAsyncThunk('update-user', async ({ data }) => {
     return data.rejectedWithValue();
   }
 });
+
+export const UpdateUserStatus = createAsyncThunk(
+  'update-user-status',
+  async ({ data }) => {
+    // console.log(data, 'kkk');
+    const response = await ApiHelperFunction({
+      urlPath: `/user/change/status/`,
+      method: 'POST',
+      data: data,
+    });
+    // console.log(response, 'uiui');
+    if (response.status === 200) {
+      swal({
+        title: 'Successfully User Profile Updated',
+        text: 'Check it in the User List',
+        icon: 'success',
+        button: 'OK',
+      });
+      return response.data;
+    } else {
+      toast.error('something went wrong');
+      return data.rejectedWithValue();
+    }
+  }
+);
 
 export const UserSlice = createSlice({
   name: 'user-management',
@@ -156,6 +181,21 @@ export const UserSlice = createSlice({
         state.data = payload?.response?.message;
       })
       .addCase(UpdateUser.rejected, (state, action) => {
+        state.status = 'failed';
+        state.isError = true;
+        state.isSuccess = false;
+      })
+      .addCase(UpdateUserStatus.pending, (state) => {
+        state.status = 'loading';
+        state.isLoading = true;
+      })
+      .addCase(UpdateUserStatus.fulfilled, (state, { payload }) => {
+        state.status = 'success';
+        state.isSuccess = true;
+        // console.log('payload', payload);
+        state.data = payload?.response?.message;
+      })
+      .addCase(UpdateUserStatus.rejected, (state, action) => {
         state.status = 'failed';
         state.isError = true;
         state.isSuccess = false;

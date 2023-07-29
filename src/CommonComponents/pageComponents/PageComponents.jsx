@@ -102,7 +102,7 @@ export const PageFooter = ({ text }) => {
 
 export const ButtonComponent = ({ text, submit }) => {
   return (
-    <>
+    <div>
       <Button
         type="submit"
         className="page_button text-capitalize"
@@ -110,7 +110,7 @@ export const ButtonComponent = ({ text, submit }) => {
       >
         {text}
       </Button>
-    </>
+    </div>
   );
 };
 
@@ -470,13 +470,7 @@ export const liveFunction = (index, GameResult) => {
   let timeDiffStart = curr_time - start_time;
   let timeDiffResult = result_time - curr_time;
   let timeDiffResultEnd = timeConvrt('23:59') - curr_time;
-  console.log(
-    timeDiffStart
-    // GameResult[GameResult.length - 1].resultTime.split(':')[0]
-    // time(GameResult[index].start_time)
-  );
-  // setInterval(() => {
-  // for (index = 0; index < GameResult.length; index++) {
+
   if (GameResult[index].resultTime.split(':')[0] === '00') {
     if (timeDiffStart > 0) {
       status = 'upcoming...';
@@ -498,7 +492,6 @@ export const liveFunction = (index, GameResult) => {
       status = 'finished';
     }
   }
-  // }, GameResult[index].resultTime);
 
   return status;
 };

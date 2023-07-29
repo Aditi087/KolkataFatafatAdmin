@@ -18,7 +18,7 @@ export const createAdmin = createAsyncThunk(
   async ({ data }) => {
     console.log(data, 'kkk');
     const response = await ApiHelperFunction({
-      // urlPath: `/createadmin`,
+      urlPath: `/admin/create`,
       method: 'POST',
       data: data,
     });
@@ -42,7 +42,7 @@ export const viewAdminList = createAsyncThunk(
   'view-admin-list',
   async (data) => {
     const response = await ApiHelperFunction({
-      // urlPath: `/view/admin`,
+      urlPath: `/admin/read/all`,
       method: 'POST',
       data: data,
     });
@@ -55,22 +55,25 @@ export const viewAdminList = createAsyncThunk(
   }
 );
 
-export const getAdminById = createAsyncThunk('get-admin-by-id', async (id) => {
-  // console.log(data, 'kkk');
-  const response = await ApiHelperFunction({
-    // urlPath: `/edit/contest/discount/${id}`,
-    method: 'GET',
-    // data: data
-  });
-  // console.log(response, 'uiui');
-  if (response.status === 200) {
-    // toast.success('Login Successfull');
-    return response.data;
-  } else {
-    swal(response.response.statusText);
-    return id.rejectedWithValue();
+export const getAdminById = createAsyncThunk(
+  'get-admin-by-id',
+  async ({ data }) => {
+    // console.log(data, 'kkk');
+    const response = await ApiHelperFunction({
+      urlPath: `/admin/read/`,
+      method: 'POST',
+      data: data,
+    });
+    // console.log(response, 'uiui');
+    if (response.status === 200) {
+      // toast.success('Login Successfull');
+      return response.data;
+    } else {
+      swal(response.response.statusText);
+      return data.rejectedWithValue();
+    }
   }
-});
+);
 
 export const UpdateAdmin = createAsyncThunk(
   'update-admin',
