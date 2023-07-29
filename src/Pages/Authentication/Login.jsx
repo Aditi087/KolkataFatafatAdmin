@@ -70,20 +70,8 @@ const Login = () => {
     let ErrorList = validation();
     setError(validation());
     if (Object.keys(ErrorList).length === 0) {
-      // if (data.phone === '9876543210' && data.password === '123456') {
-      //   localStorage.setItem('token', 'token');
-      //   swal({
-      //     title: 'Login Successfull',
-      //     // text: 'Check it in the User List',
-      //     icon: 'success',
-      //     button: 'OK',
-      //   });
-      //   navigate('/dashboard');
-      // } else {
-      //   toast.error('wrong phone or password');
-      // }
-
-      dispatch(adminLogin({ data })).then(() => {
+      if (data.phone === '9876543210' && data.password === '123456') {
+        localStorage.setItem('token', 'token');
         swal({
           title: 'Login Successfull',
           // text: 'Check it in the User List',
@@ -91,7 +79,19 @@ const Login = () => {
           button: 'OK',
         });
         navigate('/dashboard');
-      });
+      } else {
+        toast.error('wrong phone or password');
+      }
+
+      // dispatch(adminLogin({ data })).then(() => {
+      //   swal({
+      //     title: 'Login Successfull',
+      //     // text: 'Check it in the User List',
+      //     icon: 'success',
+      //     button: 'OK',
+      //   });
+      // navigate('/dashboard');
+      // });
     }
   };
 
